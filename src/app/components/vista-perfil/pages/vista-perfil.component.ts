@@ -18,8 +18,8 @@ export class VistaPerfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  buttonClick(ref) {
-    console.log(ref);
+  buttonClick(id: number) {
+    this.buttonPerfiles.activated[id] =  !this.buttonPerfiles.activated[id];
   }
 
 }
