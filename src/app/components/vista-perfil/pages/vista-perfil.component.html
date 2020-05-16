@@ -1,0 +1,13 @@
+<nz-layout class="layout">
+  <nz-content>
+    <div nz-row nzJustify="space-around" nzAlign="middle">
+      <div nz-col nzSpan="4" *ngFor="let title of buttonPerfiles.titles; index as i">
+        <app-button-perfil
+          [titleButton]="title"
+          [activated]="buttonPerfiles.activated[i]"
+          (click)="buttonClick(i)"
+        ></app-button-perfil>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>
