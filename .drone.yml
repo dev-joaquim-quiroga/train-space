@@ -1,10 +1,19 @@
+---
 kind: pipeline
-name: example-pipeline
-
+name: node6
 
 steps:
- - name: build
-    image: node:latest
+  - name: test
+    image: node:6
     commands:
-    - npm install
-    - npm run test
+      - npm install
+
+---
+kind: pipeline
+name: node8
+
+steps:
+  - name: test
+    image: node:8
+    commands:
+      - npm install
