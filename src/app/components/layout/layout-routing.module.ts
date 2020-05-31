@@ -9,6 +9,11 @@ const routes: Routes = [
     component: AuthUserComponent,
     children: [
       {
+        path: '',
+        redirectTo: '/welcome',
+        pathMatch: 'full',
+      },
+      {
         path: 'welcome',
         loadChildren: () =>
           import('../welcome/welcome.module').then((m) => m.WelcomeModule),
@@ -16,13 +21,16 @@ const routes: Routes = [
       {
         path: 'view-perfil',
         loadChildren: () =>
-          import('../vista-perfil/vista-perfil.module').then((m) => m.VistaPerfilModule),
+          import('../vista-perfil/vista-perfil.module').then(
+            (m) => m.VistaPerfilModule
+          ),
       },
     ],
   },
   {
-    path: '**', redirectTo: ''
-  }
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
