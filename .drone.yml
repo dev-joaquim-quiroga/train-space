@@ -1,9 +1,13 @@
 ---
 kind: pipeline
-name: node6
+type: docker
+name: Testing and building
 
 steps:
   - name: test
-    image: node:6
-    commands:
-      - npm install
+    when:
+      branch:
+        - master
+        - develop
+    image: node
+    commands: npm run test
