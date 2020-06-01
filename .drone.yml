@@ -17,15 +17,12 @@ steps:
     image: node
     commands:
       - npm run test
-
   - name: build
-  when:
-    branch:
-      - master
-      - develop
-  image: plugins/docker
-  commands:
-    - npm run build
-  environment:
-    APP_MODE:${DRONE_BRANCH}
-
+    when:
+      branch:
+        - master
+        - develop
+    image: node
+    commands:
+      - npm run build
+    environment: APP_MODE:${DRONE_BRANCH}
