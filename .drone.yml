@@ -7,13 +7,3 @@ steps:
     image: node:6
     commands:
       - npm install
-
----
-kind: pipeline
-name: node8
-
-steps:
-  - name: test
-    image: node:8
-    commands:
-      - npm install
