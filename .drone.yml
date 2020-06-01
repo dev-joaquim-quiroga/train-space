@@ -10,4 +10,5 @@ steps:
         - master
         - develop
     image: node
-    commands: npm run test
+    commands:
+      - npm run test
