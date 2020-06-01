@@ -23,7 +23,6 @@ steps:
         - master
         - develop
     image: node
-    commands:
-      - npm run build
     environment:
-      - APP_MODE:${DRONE_BRANCH}
+    commands:
+      - APP_MODE=${DRONE_BRANCH} npm run build
