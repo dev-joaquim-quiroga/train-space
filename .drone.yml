@@ -4,14 +4,11 @@ type: docker
 name: Testing and building
 
 steps:
-  - name: build
-    when:
-      branch:
-        - master
-        - develop
-    image: plugins/docker
-    build_args:
-      - APP_MODE=${DRONE_BRANCH}
+  - name: install
+    image: node
+    commands:
+      - npm ci
+
   - name: test
     when:
       branch:
@@ -20,3 +17,15 @@ steps:
     image: node
     commands:
       - npm run test
+
+  - name: build
+  when:
+    branch:
+      - master
+      - develop
+  image: plugins/docker
+  commands:
+    - npm run build
+  environment:
+    APP_MODE:${DRONE_BRANCH}
+
