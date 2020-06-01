@@ -4,6 +4,14 @@ type: docker
 name: Testing and building
 
 steps:
+  - name: build
+    when:
+      branch:
+        - master
+        - develop
+    image: plugins/docker
+    build_args:
+      - APP_MODE=${DRONE_BRANCH}
   - name: test
     when:
       branch:
