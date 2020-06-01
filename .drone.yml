@@ -7,7 +7,7 @@ steps:
   - name: install
     image: node
     commands:
-      - npm ci
+      - npm install
 
   - name: test
     when:
@@ -16,7 +16,7 @@ steps:
         - develop
     image: node
     commands:
-      - npm run test
+      - npm run test:headless
   - name: build
     when:
       branch:
