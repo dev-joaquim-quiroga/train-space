@@ -25,4 +25,5 @@ steps:
     image: node
     commands:
       - npm run build
-    environment: APP_MODE:${DRONE_BRANCH}
+    environment:
+      - APP_MODE:${DRONE_BRANCH}
